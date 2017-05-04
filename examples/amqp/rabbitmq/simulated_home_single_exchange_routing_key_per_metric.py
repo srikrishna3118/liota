@@ -115,10 +115,10 @@ if __name__ == '__main__':
     #  Creating EdgeSystem
     edge_system = Dell5KEdgeSystem(config['EdgeSystemName'])
     #  Encapsulates Identity
-    identity = Identity(config['broker_root_ca_cert'], config['broker_username'], config['broker_password'],
-                        cert_file=None, key_file=None)
+    #identity = Identity(config['broker_root_ca_cert'], config['broker_username'], config['broker_password'],
+    #                    cert_file=None, key_file=None)
     # Encapsulate TLS parameters
-    tls_conf = TLSConf(config['cert_required'], config['tls_version'], config['cipher'])
+    #tls_conf = TLSConf(config['cert_required'], config['tls_version'], config['cipher'])
 
     #  Connecting to RabbitMQ
     #  Custom Publish Topic for an EdgeSystem
@@ -127,8 +127,8 @@ if __name__ == '__main__':
 
     rabbitmq = RabbitMQ(AmqpDccComms(edge_system_name=edge_system.name,
                                      url=config['BrokerIP'], port=config['BrokerPort'],
-                                     identity=identity, tls_conf=tls_conf,
-                                     amqp_pub_msg_attr=amqp_pub_msg_attr, enable_authentication=True))
+                                     #identity=identity, tls_conf=tls_conf,
+                                     amqp_pub_msg_attr=amqp_pub_msg_attr))
 
     #  Registering EdgeSystem
     reg_edge_system = rabbitmq.register(edge_system)
