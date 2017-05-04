@@ -129,8 +129,8 @@ if __name__ == '__main__':
 
     rabbitmq = RabbitMQ(AmqpDccComms(edge_system_name=edge_system.name,
                                      url=config['BrokerIP'], port=config['BrokerPort'],
-                                     #identity=identity, tls_conf=tls_conf,
-                                     amqp_pub_msg_attr=amqp_pub_msg_attr))
+                                     identity=identity, #tls_conf=tls_conf,
+                                     amqp_pub_msg_attr=amqp_pub_msg_attr, enable_authentication=True))
 
     #  Registering EdgeSystem
     reg_edge_system = rabbitmq.register(edge_system)
