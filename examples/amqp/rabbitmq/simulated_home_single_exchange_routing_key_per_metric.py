@@ -115,6 +115,8 @@ if __name__ == '__main__':
     #  Creating EdgeSystem
     edge_system = Dell5KEdgeSystem(config['EdgeSystemName'])
     #  Encapsulates Identity
+    identity = Identity(root_ca_cert=None, config['broker_username'], config['broker_password'],
+                        cert_file=None, key_file=None)
     #identity = Identity(config['broker_root_ca_cert'], config['broker_username'], config['broker_password'],
     #                    cert_file=None, key_file=None)
     # Encapsulate TLS parameters
